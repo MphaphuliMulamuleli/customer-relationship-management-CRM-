@@ -1,0 +1,130 @@
+<?php
+/* Smarty version 4.3.4, created on 2023-10-24 06:38:31
+  from '/var/www/sugarcrm/core/general/module/views/templates/edit.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '4.3.4',
+  'unifunc' => 'content_65376667209eb7_67732282',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '89897e24c49e5fd8a349b2db551dee851362a4b8' => 
+    array (
+      0 => '/var/www/sugarcrm/core/general/module/views/templates/edit.tpl',
+      1 => 1698077117,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_65376667209eb7_67732282 (Smarty_Internal_Template $_smarty_tpl) {
+?><!-- This is the HTML form -->
+<h3><?php echo $_smarty_tpl->tpl_vars['moduleLabel']->value;?>
+</h3>
+<br><br>
+<form method="put" action="/module/<?php echo $_smarty_tpl->tpl_vars['beanName']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['beanArray']->value['id'];?>
+">
+    <input type="hidden" name="_token" value="<?php echo $_smarty_tpl->tpl_vars['csrf_token']->value;?>
+" />
+    <table class="table table-module-detail table-striped-columns">
+        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['viewFieldDefs']->value, 'rowDefs');
+$_smarty_tpl->tpl_vars['rowDefs']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['rowDefs']->value) {
+$_smarty_tpl->tpl_vars['rowDefs']->do_else = false;
+?>
+            <tr>
+                <?php if ((isset($_smarty_tpl->tpl_vars['rowDefs']->value[0]))) {?>
+                    <!-- Label for the first input field -->
+                    <th><?php echo $_smarty_tpl->tpl_vars['rowDefs']->value[0];?>
+:</th>
+                    <!-- Input field for the first value -->
+                    <td>
+                        <?php if ($_smarty_tpl->tpl_vars['fieldDefs']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[0]]['type'] == "boolean") {?>
+                            <!-- Checkbox for boolean type -->
+                            <div class="form-check">
+                                <input class="form-check-input" name="<?php echo $_smarty_tpl->tpl_vars['rowDefs']->value[0];?>
+" type="checkbox" value="1" <?php if ($_smarty_tpl->tpl_vars['beanArray']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[0]]) {?>checked<?php }?>/>
+                            </div>
+                        <?php } else { ?>
+                            <!-- Text input for other types -->
+                            <input type="text" class="form-control <?php if ((isset($_smarty_tpl->tpl_vars['errors']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[0]]))) {?>is-invalid<?php }?>" name="<?php echo $_smarty_tpl->tpl_vars['rowDefs']->value[0];?>
+" value="<?php if ((isset($_smarty_tpl->tpl_vars['oldData']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[0]]))) {
+echo $_smarty_tpl->tpl_vars['oldData']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[0]];
+} else {
+echo $_smarty_tpl->tpl_vars['beanArray']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[0]];
+}?>" />
+                        <?php }?>
+                        <!-- Display error messages if any -->
+                        <?php if ((isset($_smarty_tpl->tpl_vars['errors']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[0]]))) {?>
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['errors']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[0]], 'errorMessage');
+$_smarty_tpl->tpl_vars['errorMessage']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['errorMessage']->value) {
+$_smarty_tpl->tpl_vars['errorMessage']->do_else = false;
+?>
+                                <div class="invalid-feedback">
+                                    <?php echo $_smarty_tpl->tpl_vars['errorMessage']->value;?>
+
+                                </div>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                        <?php }?>
+                    </td>
+                <?php } else { ?>
+                    <!-- Empty cells if $rowDefs[0] is not set -->
+                    <th></th><td></td>
+                <?php }?>
+
+                <!-- Repeat similar structure for the second field -->
+                <?php if ((isset($_smarty_tpl->tpl_vars['rowDefs']->value[1]))) {?>
+                    <th><?php echo $_smarty_tpl->tpl_vars['rowDefs']->value[1];?>
+:</th>
+                    <td>
+                        <?php if ($_smarty_tpl->tpl_vars['fieldDefs']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[1]]['type'] == "boolean") {?>
+                            <div class="form-check">
+                                <input class="form-check-input" name="<?php echo $_smarty_tpl->tpl_vars['rowDefs']->value[1];?>
+" type="checkbox" value="1" <?php if ($_smarty_tpl->tpl_vars['beanArray']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[1]]) {?>checked<?php }?>/>
+                            </div>
+                        <?php } else { ?>
+                            <input type="text"class="form-control <?php if ((isset($_smarty_tpl->tpl_vars['errors']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[1]]))) {?>is-invalid<?php }?>" name="<?php echo $_smarty_tpl->tpl_vars['rowDefs']->value[1];?>
+" value="<?php if ((isset($_smarty_tpl->tpl_vars['oldData']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[1]]))) {
+echo $_smarty_tpl->tpl_vars['oldData']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[1]];
+} else {
+echo $_smarty_tpl->tpl_vars['beanArray']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[1]];
+}?>" />
+                        <?php }?>
+                        <?php if ((isset($_smarty_tpl->tpl_vars['errors']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[1]]))) {?>
+                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['errors']->value[$_smarty_tpl->tpl_vars['rowDefs']->value[1]], 'errorMessage');
+$_smarty_tpl->tpl_vars['errorMessage']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['errorMessage']->value) {
+$_smarty_tpl->tpl_vars['errorMessage']->do_else = false;
+?>
+                                <div class="invalid-feedback">
+                                    <?php echo $_smarty_tpl->tpl_vars['errorMessage']->value;?>
+
+                                </div>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                        <?php }?>
+                    </td>
+                <?php } else { ?>
+                    <th></th><td></td>
+                <?php }?>
+            </tr>
+        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+    </table>
+    <!-- Submit button to save the form -->
+    <button class="btn btn-outline-secondary" type="submit">Save</button>
+</form>
+<?php }
+}
